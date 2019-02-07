@@ -1,0 +1,45 @@
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">SIGNUP</button>
+<div id="id02" class="modal">
+<form [formGroup]="regiForm" class="modal-content animate" (ngSubmit)="onSubmit()" name="Form1">
+  <div class="imgcontainer">
+    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  </div>
+  <div  class="container">
+      <h1 *ngIf="!message">Sign up</h1>
+
+    <mat-form-field  *ngIf="!message" class="example-full-width" hintLabel="Max 10 characters">
+        <span matPrefix>+91 &nbsp;</span>
+      <input matInput  maxlength="10" formControlName="mobileNumber" id="phoneNo" placeholder="Enter Mobile Number"  class="example-full-width"  type="number"  required>
+     
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!message" class="example-full-width">
+        <span matSuffix>@anymail.com &nbsp;</span>
+      <input matInput placeholder="Enter Email"  formControlName="email" class="example-full-width"   required >
+      
+    </mat-form-field>
+    
+    <mat-form-field *ngIf="!message" class="example-full-width">
+    <input matInput placeholder="Enter your password" formControlName="password" name="password"   [type]="hide ? 'password' : 'text'" required> 
+    <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> 
+    </mat-form-field>
+    <mat-form-field  *ngIf="!message" class="example-full-width">
+        
+      <input matInput placeholder="Re-Enter Password"  id ="TextBox" name="confirm_password"  [type]="hide ? 'password' : 'text'"  class="example-full-width"   required >
+      <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> 
+    </mat-form-field>
+    <h1 *ngIf="message">Signup SucessFull Pls Login</h1>
+    <div id= "1" style ="color: red">
+    </div>
+    <button *ngIf="!message" type="submit" [disabled]="regiForm.invalid" onclick ="return validate()" >Sign up</button>
+  
+  </div>
+</form>
+    
+</div>
+​
+<script>
+  // Get the modal
+  var modal = document.getElementById(id02);
+
+</script>

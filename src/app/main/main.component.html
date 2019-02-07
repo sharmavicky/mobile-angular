@@ -1,0 +1,33 @@
+<div class="banner">
+	<div class="header">	
+			<div class="logo">
+			   <h1><a href=""><i><img src="assets/images/cell.png" alt=" " /></i>Easy Recharge</a></h1>
+			</div>
+			<div class="top-nav">
+				<span class="menu"><img src="assets/images/menu.png" alt=" " /></span>
+				<ul class="nav1">
+					<li><app-login></app-login></li>
+					<li><app-signup></app-signup></li>
+				</ul>	
+			</div>
+			<div class="clearfix"> </div>
+	</div>
+	<div class="container">
+		<div class="banner-info">
+			
+			<h3>Get Free Coupons and Discounts on Top Brands With Every Recharge</h3>
+		</div>
+		<div class="buttons">
+			<ul>
+				<li><app-mobile></app-mobile></li>
+					
+				<li *ngIf="authservice.isLoggedIn"><app-history></app-history></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<!-- for bootstrap working -->
+		<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->

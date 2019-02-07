@@ -1,0 +1,53 @@
+<button onclick="document.getElementById('id05').style.display='block'" style="width:auto;">HISTORY</button>
+<div id="id05" class="modal modal-content animate">
+  <div class="imgcontainer">
+    <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+  </div>
+
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header>Transaction Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+<!-- mobile Column -->
+<ng-container matColumnDef="mobileNumber">
+  <th mat-header-cell *matHeaderCellDef  mat-sort-header>Mobile No</th>
+  <td mat-cell *matCellDef="let row">{{row.mobileNumber}}</td>
+</ng-container>
+
+<!-- amount Column -->
+<ng-container matColumnDef="amount">
+  <th mat-header-cell *matHeaderCellDef  mat-sort-header>Amount</th>
+  <td mat-cell *matCellDef="let row">{{row.amount}}</td>
+</ng-container>
+
+<!-- date Column -->
+<ng-container matColumnDef="date">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+  <td mat-cell *matCellDef="let row">{{row.date|date:'mediumDate'}}</td>
+</ng-container>
+
+<!-- date Column -->
+<ng-container matColumnDef="operator.name">
+  <th mat-header-cell *matHeaderCellDef>Operator</th>
+  <td mat-cell *matCellDef="let row">{{row.operator.name}}</td>
+</ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator #paginator
+      [pageIndex]="0"
+      [pageSize]="5"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+
+</div>
+</div>
+​
+<script>
+  // Get the modal
+  var modal = document.getElementById(id05);
+</script>

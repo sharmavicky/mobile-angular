@@ -1,0 +1,82 @@
+<button  onclick="document.getElementById('id03').style.display='block'" style="width:auto;">QUICK RECHARGE</button>
+
+<div id="id03" class="modal">
+
+<form *ngIf="!recharge" class="modal-content animate">
+  <div class="imgcontainer">
+    <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <img src="/assets/images/mobile.png" alt="mobile" >
+  </div>
+
+  <div class="container">
+      <div class="radio-group col-md-12 col-sm-12 col-lg-12">
+      <mat-radio-group>
+          <mat-radio-button value="1" onclick="show1()" unchecked>Postpaid</mat-radio-button>
+          <mat-radio-button value="2" onclick="show2()" unchecked>Prepaid</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div id="div1" class="hide">
+    <mat-form-field class="example-full-width" hintLabel="Max 10 characters">
+        <span matPrefix>+91 &nbsp;</span>
+      <input matInput placeholder="Enter Mobile Number"  maxlength="10" class="example-full-width"  type="number" required>
+      
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-select (selectionChange)="getOffers($event.value)" placeholder="Select the Operator">
+        <mat-option *ngFor="let Operator of Operators" [value]="Operator.id">
+          {{Operator.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <mat-select placeholder="Select the offer" (selectionChange)="getAmount($event.value)" >
+        <mat-option *ngFor="let Offer of Offers" [value]="Offer.id">
+         {{Offer.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      
+     <input matInput placeholder="Enter Amount" class="example-full-width" [value]="amount" readonly>
+    
+  </mat-form-field>
+  <button (click)="submit()">Recharge</button>
+</div>
+
+<div id="div2" class="hide">
+  <mat-form-field class="example-full-width" hintLabel="Max 10 characters">
+      <span matPrefix>+91 &nbsp;</span>
+    <input matInput placeholder="Enter Mobile Number" maxlength="10" class="example-full-width"  type="number" required>
+    
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+   
+  <input matInput placeholder="Amount "  	class="example-full-width" >
+  
+</mat-form-field>
+<button (click)="submit()">Recharge</button>
+</div>
+
+</div>
+</form>
+
+<div *ngIf="recharge" class="modal-content animate">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="/assets/images/sucess.gif"  width="200" height="200" alt="mobile" >
+      </div>
+    
+      <div class="container" style="text-align:center;">
+           <h1>Recharge SucessFull</h1>
+    </div>
+  </div>
+</div>
+<script>
+  // Get the modal
+  var modal = document.getElementById(id03);
+</script>

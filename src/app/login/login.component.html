@@ -1,0 +1,31 @@
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+
+<form class="modal-content animate">
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      </div>
+  <div *ngIf="!authservice.isLoggedIn" class="container"> 
+      <h1 >Login</h1>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter MobileNumber"  class="example-full-width" required #mobileNumber >
+      <span matPostfix> &nbsp;</span>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required #password>
+      <mat-icon matSuffix (click)="hide=!hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <input type="button" class="loginButton" value="login" (click)="add(mobileNumber.value, password.value);">
+    
+  </div>
+  <div *ngIf="authservice.isLoggedIn" class="container"> 
+    <h1>Login Sucessfull Now You can access History</h1>
+    </div>
+</form>
+</div>
+​
+<script>
+  // Get the modal
+  var modal = document.getElementById(id01);
+</script>
